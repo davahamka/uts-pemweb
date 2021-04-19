@@ -1,0 +1,1 @@
+<?php $THEME_COLOR = "#3949f0"; ?>
