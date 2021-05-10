@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+    $_SESSION['flash_register']="";
     require_once "./theme_color.php";
     require_once "./read_req.php";
 ?>
@@ -13,18 +15,23 @@
     <title>Document</title>
 </head>
 <body class="" style="overflow: hidden;">
-    
     <section class="row d-flex flex-row align-items-center justify-content-center" style="height:100vh;">
         <div class="col-lg-5 px-5">
-            <h1>Welcome to TDL</h1>
+            <h1>Hello, <br />Welcome back</h1>
+            
             <div>
-            <form action="./index.php" method="POST">
+            <?php if(isset($_SESSION['flash_login'])){
+                echo "<p class='text-danger mb-2'>{$_SESSION['flash_login']}</p>";   
+            } ?>
+            <form action="./actions/login_action.php" method="POST">
             <?php
                 foreach($login as $l){
                     if($l['is_input']==1){
                         $is_secure = 'text';
                         if($l['is_secure']==1){
                             $is_secure = 'password';
+                        } else if(['is_secure']==2){
+                            $is_secure = 'email';
                         }
                         echo '<div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">'.$l['name'].'</label>
@@ -34,8 +41,9 @@
                 }
             ?>
 
-  <button type="submit" class="btn btn-primary" style="background:<?php echo $THEME_COLOR ?>">Submit</button>
-</form>
+            <button type="submit" class="btn btn-primary w-100" style="background:<?php echo $THEME_COLOR ?>">Sign In</button>
+            <p class="mt-4">Don't have account yet? <a href="./register.php">Register account</a> </p>
+        </form>
             </div>
         </div>
         <div class="col-lg-7 d-none d-lg-block">

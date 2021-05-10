@@ -1,6 +1,7 @@
 <?php
     $row = 1;
     $login = [];
+    $register = [];
     $display = [];
     $field ='';
     $type ='';
@@ -30,7 +31,17 @@
                 $is_secure = $data[6];
                 $is_input = $data[7];
                 array_push($login,array("field"=>$field, "type"=>$type, "length"=>$length, "is_pk"=>$is_pk, "name"=>$name, "is_secure"=>$is_secure, "is_input"=>$is_input));
-            }else if($data[0]=="display"){
+            }else if($data[0]=='register'){
+              $field = $data[1];
+              $type = $data[2];
+              $length = $data[3];
+              $is_pk = $data[4];
+              $name = $data[5];
+              $is_secure = $data[6];
+              $is_input = $data[7];
+              array_push($register,array("field"=>$field, "type"=>$type, "length"=>$length, "is_pk"=>$is_pk, "name"=>$name, "is_secure"=>$is_secure, "is_input"=>$is_input));
+            }
+            else if($data[0]=="display"){
               $field_display = $data[1];
               $type_display = $data[2];
               $length_display = $data[3];

@@ -1,1 +1,1 @@
-<?php $THEME_COLOR = "#000"; ?>
+<?php $THEME_COLOR = "rgb(0, 111, 230)"; ?>
