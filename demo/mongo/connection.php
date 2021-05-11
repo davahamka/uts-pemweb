@@ -6,6 +6,6 @@ $mongostring = 'mongodb://pemweb:kelompok6@ec2-18-204-3-17.compute-1.amazonaws.c
 $client = new MongoDB\Client($mongostring);
 
 
-$collection = $client->dbpemweb->todos;
+$collection = $client->dbpemweb->tweets;
 
 ?>

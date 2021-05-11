@@ -6,7 +6,7 @@
     require "./mysql.php";
     require "./theme_color.php";
     // require "./read_req.php";
-    $query = $mysql->query("SELECT * FROM todos");
+    $query = $mysql->query("SELECT * FROM todos WHERE in_charge='{$_SESSION["username"]}'");
 
 ?>
 <html lang="en">
@@ -78,9 +78,9 @@
                             <label for="exampleFormControlInput1" class="form-label">Date</label>
                             <input type="date" class="form-control" id="exampleFormControlInput1" name="date" required placeholder="name@example.com">
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3" style="display: none;">
                             <label for="exampleFormControlInput1" class="form-label">Handle by</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="in_charge" value="<?php echo $_SESSION['username']?>" required disabled>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="incharge" value="<?php echo $_SESSION['username']?>" required style="display:none;">
                         </div>
                     </div>
                     <div class="modal-footer">
